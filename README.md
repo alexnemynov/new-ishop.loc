@@ -14,7 +14,7 @@
 Для тех, у кого Windows
 
 ##### Настройки nginx.conf 
-
+```
 server {
     	listen 80;
     	server_name _;
@@ -38,14 +38,15 @@ server {
         	fastcgi_pass 127.0.0.1:9123;
     	}    
     }
+```
 
 ##### Запуск:
-Клонировать проект в C:\nginx-1.26.1\html\new-ishop.loc
-$ composer install
-
-$ cd c:\nginx-1.26.1
-$ start nginx
-$ cd c:\php-8.3.7
-$ php-cgi.exe -b 127.0.0.1:9123
-
+Клонировать проект в C:\nginx-1.26.1\html\new-ishop.loc  
+$ composer install  
+  
+$ cd c:\nginx-1.26.1  
+$ start nginx  
+$ cd c:\php-8.3.7  
+$ php-cgi.exe -b 127.0.0.1:9123  
+  
 Перейти [Главная](http://localhost/)

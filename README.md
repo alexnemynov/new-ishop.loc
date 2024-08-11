@@ -15,7 +15,7 @@
   
 Открыть от имени администратора файл C:\Windows\System32\drivers\etc\hosts и дописать строчку:  
 ```
-C:\Windows\System32\drivers\etc
+127.0.0.1 localhost new-ishop.loc  
 ```
 
 ##### Настройки nginx.conf 
@@ -42,7 +42,8 @@ C:\Windows\System32\drivers\etc
         	fastcgi_index index.php;
         	fastcgi_pass 127.0.0.1:9123;
     	}    
-    }```
+    }  
+```
 
 ##### Запуск:
 Клонировать проект в C:\nginx-1.26.1\html\new-ishop.loc  
@@ -53,4 +54,4 @@ $ start nginx
 $ cd c:\php-8.3.7  
 $ php-cgi.exe -b 127.0.0.1:9123  
   
-Перейти [Главная](http://localhost/)
+Перейти [Главная](http://new-ishop.loc/)

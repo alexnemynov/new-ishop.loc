@@ -11,13 +11,18 @@
 
 ## Local Developing
 
-Для тех, у кого Windows
+### Для тех, у кого Windows  
+  
+Открыть от имени администратора файл C:\Windows\System32\drivers\etc\hosts и дописать строчку:  
+```
+C:\Windows\System32\drivers\etc
+```
 
 ##### Настройки nginx.conf 
 ```
-server {
+    server {
     	listen 80;
-    	server_name _;
+    	server_name new-ishop.loc;
     	index index.php;
     	error_log c:/nginx-1.26.1/logs/localhost.error.log;
     	access_log c:/nginx-1.26.1/logs/localhost.access.log;
@@ -37,8 +42,7 @@ server {
         	fastcgi_index index.php;
         	fastcgi_pass 127.0.0.1:9123;
     	}    
-    }
-```
+    }```
 
 ##### Запуск:
 Клонировать проект в C:\nginx-1.26.1\html\new-ishop.loc  

@@ -17,7 +17,7 @@ define("CACHE", ROOT . '/tmp/cache');
 // Логи
 define("LOGS", ROOT . '/tmp/logs');
 // Конфиг
-define("СONFIG", __DIR__);
+define("CONFIG", ROOT . '/config');
 // Шаблон сайта по умолчанию
 define("LAYOUT", 'ishop');
 // HTTP адрес сайта

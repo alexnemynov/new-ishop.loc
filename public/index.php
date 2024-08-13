@@ -11,3 +11,5 @@ new \aerohcss\App();
 //var_dump(
 //    \aerohcss\App::$app->getProperties()
 //);
+
+throw new Exception('Возникла ошибка', code: 500);

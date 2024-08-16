@@ -43,11 +43,38 @@ class Router
                 if (empty($route['action'])) {
                     $route['action'] = 'index';
                 }
-                if (!isset($route['admin_prefix']))
+                if (!isset($route['admin_prefix'])) {
+                    $route['admin_prefix'] = '';
+                } else {
+                    // Это нужно для пространства имен
+                    $route['admin_prefix'] = '\\';
+                }
+                $route['controller'] = self::upperCamelCase($route['controller']);
+                $route['action'] = self::lowerCamelCase($route['action']);
                 debug($route);
                 return true;
             }
         }
         return false;
+    }
+
+    //CamelCase
+    protected static function upperCamelCase($name): string
+    {
+        // new-product => new product
+        $name = str_replace('-', ' ', $name);
+        // new product => New Product
+        $name = ucwords($name);
+        // New Product = > NewProduct
+        $name = str_replace(' ', '', $name);
+        return $name;
+    }
+
+    //camelCase
+    protected static function lowerCamelCase($name): string
+    {
+        // NewProduct = > newProduct
+        $name = lcfirst(self::upperCamelCase($name));
+        return $name;
     }
 }

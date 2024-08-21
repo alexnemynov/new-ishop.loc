@@ -2,10 +2,14 @@
 
 namespace app\controllers;
 
-class MainController
+use aerohcss\Controller;
+
+class MainController extends Controller
 {
     public function indexAction()
     {
+//        var_dump($this->model);
         echo __METHOD__;
+//        $this->setMeta();
     }
 }

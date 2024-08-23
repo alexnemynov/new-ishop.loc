@@ -37,7 +37,6 @@ class Router
         if (self::matchRoute($url)) {
             $controller = 'app\controllers\\' . self::$route['admin_prefix'] . self::$route['controller'] .
                 'Controller';
-            echo $controller;
             if (class_exists($controller)) {
                 /** @var Controller $controllerObject */
                 $controllerObject = new $controller(self::$route);
@@ -47,6 +46,7 @@ class Router
                 $action = self::lowerCamelCase(self::$route['action'] . 'Action');
                 if (method_exists($controllerObject, $action)) {
                     $controllerObject->$action();
+                    $controllerObject->getView();
                 } else {
                     throw new \Exception("Метод {$action} не найден", 404);
                 }
@@ -78,7 +78,6 @@ class Router
                 }
                 $route['controller'] = self::upperCamelCase($route['controller']);
                 $route['action'] = self::lowerCamelCase($route['action']);
-                debug($route);
                 self::$route = $route;
                 return true;
             }

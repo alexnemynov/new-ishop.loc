@@ -10,10 +10,4 @@ require_once CONFIG . '/routes.php';
 
 new \aerohcss\App();
 
-//var_dump(
-//    \aerohcss\App::$app->getProperties()
-//);
-
-debug(\aerohcss\Router::getRoutes());
-
-//throw new Exception('Возникла ошибка', code: 404);
+//debug(\aerohcss\Router::getRoutes());

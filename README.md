@@ -45,6 +45,8 @@
     }  
 ```
 
+##### Заполнить данные для подключения к PostgresSQL в .env.example и переименовать файл в просто .env
+
 ##### Запуск:
 Клонировать проект в C:\nginx-1.26.1\html\new-ishop.loc  
 $ composer install  

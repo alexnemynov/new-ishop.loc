@@ -2,6 +2,8 @@
 
 namespace aerohcss;
 
+use RedBeanPHP\R;
+
 class View
 {
     public string $content = '';
@@ -48,5 +50,35 @@ class View
         $out .= '<meta name="description" content="' . h($this->meta['description']) . '">' . PHP_EOL;
         $out .= '<meta name="keywords" content="' . h($this->meta['keywords']) . '">' . PHP_EOL;
         return $out;
+    }
+
+    public function geDbLogs()
+    {
+        if (DEBUG) {
+            $logs = R::getDatabaseAdapter()
+                ->getDatabase()
+                ->getLogger();
+            $logs = array_merge(
+                $logs->grep('SELECT'),
+                $logs->grep('select'),
+                $logs->grep('INSERT'),
+                $logs->grep('UPDATE'),
+                $logs->grep('DELETE')
+            );
+            debug($logs);
+        }
+    }
+
+    public function getPart($file, $data = null)
+    {
+        if (is_array($data)) {
+            extract($data);
+        }
+        $file = APP . "/views/{$file}.php";
+        if (is_file($file)) {
+            require $file;
+        } else {
+            echo "File {$file} not found...";
+        }
     }
 }
